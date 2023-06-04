@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title>Exact Age Calculator</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+</head>
+
+<style>
+    body {
+        background-image: linear-gradient(to left, #848484, #919187);
+    }
+    
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h2 class="text-center">Exact Age calculator</h2>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" id="myForm">
+                        {% csrf_token %}
+                        <div>
+                            {% if message %}
+                            <div class="alert alert-warning" role="alert">
+                                <p class="text-center">{{message}}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div id="div_id_name" class="form-group required">
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Full name<span
+                                    class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_name" name="name" placeholder="Your Frist name and Last name" style="margin-bottom: 10px" type="text" required/>
+                            </div>
+                        </div>
+                        <div id="div_id_gender" class="form-group required">
+                            <label for="id_gender" class="control-label col-md-4  requiredField"> Gender<span
+                                    class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 " style="margin-bottom: 10px">
+                                <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_1"
+                                        value="Male" style="margin-bottom: 10px">Male</label>
+                                <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_2"
+                                        value="Female" style="margin-bottom: 10px">Female </label>
+                            </div>
+                        </div>
+                        <div id="div_id_name" class="form-group required">
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Year<span
+                                    class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_name" name="year" placeholder="Your birth year" style="margin-bottom: 10px" type="number" required/>
+                            </div>
+                        </div>
+                        <div id="div_id_name" class="form-group required">
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Month<span
+                                    class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_name" name="month" placeholder="Your birth month (1 to 12)" style="margin-bottom: 10px" type="number" required/>
+                            </div>
+                        </div>
+                        <div id="div_id_name" class="form-group required">
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Day<span
+                                    class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_name" name="day" placeholder="Your birth day (1 to 31)" style="margin-bottom: 10px" type="number" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls col-md-offset-4 col-md-8 ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <input type="submit" value="Calculate Age" class="btn btn btn-primary" id="button-id-signup" />
+
+                                <!-- <a href="#" class="btn btn btn-primary" style="margin-left: 20px; font-size: large; border:none"><i class="fa-solid fa-arrow-right-to-bracket"></i></a> -->
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                {% if years and month and days %}
+                <div style="padding:2%;">
+                    <h4 class="text-center"><b>Your Age is: {{years}} years, ({{years}} years , {{month}} months and {{days}} days)</b>
+                    </h4>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
